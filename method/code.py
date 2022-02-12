@@ -1,5 +1,5 @@
 from typing import List
 
-def total(lst: List) -> List:
+def main(lst: List) -> List:
     lst = map(int, lst)
     return [str(sum(lst))]

@@ -1,7 +1,7 @@
 import unittest
 from typing import List
 
-from method.code import total
+from method.code import main
 
 
 class TestRunner(unittest.TestCase):
@@ -12,10 +12,10 @@ class TestRunner(unittest.TestCase):
         self.answers = self.read_file(f'out/answer_{TestRunner.TEST_CNT}.txt')
 
     def test_1(self) -> None:
-        self.assertEqual(total(self.inputs), self.answers)
+        self.assertEqual(main(self.inputs), self.answers)
 
     def test_2(self) -> None:
-        self.assertEqual(total(self.inputs), self.answers)
+        self.assertEqual(main(self.inputs), self.answers)
 
     def read_file(self, file: str) -> List:
         lst = []
