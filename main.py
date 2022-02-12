@@ -1,4 +1,5 @@
 import unittest
+from typing import List
 
 from method.code import total
 
@@ -6,17 +7,19 @@ from method.code import total
 class TestRunner(unittest.TestCase):
     TEST_CNT = 0
     def setUp(self) -> None:
-        self.inputs, self.answers = [], []
         TestRunner.TEST_CNT += 1
-        with open(f'in/test_{TestRunner.TEST_CNT}.txt', 'r') as f:
-            for line in f:
-                self.inputs.append(line.strip('\n'))
-        with open(f'out/answer_{TestRunner.TEST_CNT}.txt', 'r') as f:
-            for line in f:
-                self.answers.append(line.strip('\n'))
+        self.inputs = self.read_file(f'in/test_{TestRunner.TEST_CNT}.txt')
+        self.answers = self.read_file(f'out/answer_{TestRunner.TEST_CNT}.txt')
 
     def test_1(self) -> None:
         self.assertEqual(total(self.inputs), self.answers)
 
     def test_2(self) -> None:
         self.assertEqual(total(self.inputs), self.answers)
+
+    def read_file(self, file: str) -> List:
+        lst = []
+        with open(file, 'r') as f:
+            for line in f:
+                lst.append(line.strip('\n'))
+        return lst
