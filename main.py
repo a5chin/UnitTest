@@ -5,6 +5,8 @@ from method.code import main
 
 
 class TestRunner(unittest.TestCase):
+    """This is the class to compare the results.
+    """
     TEST_CNT = 0
     def setUp(self) -> None:
         TestRunner.TEST_CNT += 1
@@ -18,6 +20,14 @@ class TestRunner(unittest.TestCase):
         self.assertEqual(main(self.inputs), self.answers)
 
     def read_file(self, file: str) -> List:
+        """The function to read a file.
+
+        Args:
+            file (str): The path to a file.
+
+        Returns:
+            List: Contents of the file.
+        """
         lst = []
         with open(file, 'r') as f:
             for line in f:
